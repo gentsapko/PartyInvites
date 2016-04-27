@@ -13,13 +13,15 @@
 </head>
 <body>
 
-  @using (Html.BeginForm()) {
-<p>Your name: @Html.TextBoxFor(x => x.Name) </p>
-<p>Your email: @Html.TextBoxFor(x => x.Email)</p>
-<p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
-      <p>
-          Will you attend?
-          @Html.DropDownListFor(x => x.WillAttend, new[]
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Will you attend?
+            @Html.DropDownListFor(x => x.WillAttend, new[]
           {
               new SelectListItem()
               {
@@ -32,8 +34,8 @@
                   Value = bool.FalseString
               }
           }, "Choose an option")
-      </p>
-<input type="submit" value="Submit RSVP" />
-}
+        </p>
+        <input type="submit" value="Submit RSVP" />
+    }
 </body>
-</html>
+</html>
